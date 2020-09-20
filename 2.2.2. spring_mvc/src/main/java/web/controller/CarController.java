@@ -8,13 +8,14 @@ import web.Model.Car;
 import web.Service.CarService;
 
 import java.util.List;
+import java.util.Locale;
 
 
 @Controller
 public class CarController {
 
     @GetMapping(value = "/cars")
-    public String printWelcome(ModelMap model) {
+    public String printWelcome(ModelMap model, Locale locale) {
         List<Car> carModel = new CarService().carList();
         model.addAttribute("CarsModel", carModel);
         return "cars";
